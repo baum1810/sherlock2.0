@@ -1,0 +1,5 @@
+colorama
+requests
+praw
+mojang==0.1.9
+holehe
