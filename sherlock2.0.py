@@ -182,7 +182,7 @@ def username():
     | Followers {split_followers_eight}
     |
     | Following: {split_following_eight}
-    |
+    | 
                 '''
                 
                 print(result)
@@ -290,8 +290,47 @@ def username():
                 #print(f"[-] twitch account {username} not found")   
                 pass
                 
+            r = requests.get(f"https://api.twitch.tv/v5/users/?login={username}&client_id=jzkbprff40iqj646a697cyrvl0zt2m6")
             
+            twitch_api_text = r.text
             
+            twitch_api_id_one = twitch_api_text.find('"_id"')
+            twitch_api_id_two = twitch_api_text.find('"name"')
+            twitch_api_id_three = twitch_api_text[twitch_api_id_one:twitch_api_id_two].replace('"_id":"','').replace('"','').replace(',','')
+            
+            twitch_api_type_one = twitch_api_text.find('"type"')
+            twitch_api_type_two = twitch_api_text.find('"bio"')
+            twitch_api_type_three = twitch_api_text[twitch_api_type_one:twitch_api_type_two].replace('"type":"','').replace('"','').replace(',','')
+            
+            twitch_api_bio_one = twitch_api_text.find('"bio"')
+            twitch_api_bio_two = twitch_api_text.find('"created_at"')
+            twitch_api_bio_three = twitch_api_text[twitch_api_bio_one:twitch_api_bio_two].replace('"bio":"','').replace('"','').replace(',','')
+            
+            twitch_api_created_one = twitch_api_text.find('"created_at"')
+            twitch_api_created_two = twitch_api_text.find('"updated_at"')
+            twitch_api_created_three = twitch_api_text[twitch_api_created_one:twitch_api_created_two].replace('"created_at":"','').replace('"','').replace(',','')
+            
+            twitch_api_updated_at_one = twitch_api_text.find('"updated_at"')
+            twitch_api_updated_at_two = twitch_api_text.find('"logo"')
+            twitch_api_updated_at_three = twitch_api_text[twitch_api_updated_at_one:twitch_api_updated_at_two].replace('"updated_at":"','').replace('"','').replace(',','')
+            
+            twitch_api_logo_one = twitch_api_text.find('"logo"')
+            twitch_api_logo_three = twitch_api_text[twitch_api_logo_one:].replace('"logo":"','').replace('"','').replace(',','').replace('}','').replace(']','')
+            
+            twitchprint = f'''    | 
+    | Id: {twitch_api_id_three}
+    | 
+    | Created: {twitch_api_updated_at_three}
+    | 
+    | Account type: {twitch_api_type_three}
+    | 
+    | Profile picture: {twitch_api_logo_three}
+    | 
+    | Bio: {twitch_api_bio_three}
+    |   
+            '''
+            
+            print(twitchprint)
             
             try:    
                 r = requests.get(f'https://www.picuki.com/profile/{username}')
@@ -1087,7 +1126,47 @@ def username():
             #print(f"[-] twitch account {username} not found")   
             pass
             
+        r = requests.get(f"https://api.twitch.tv/v5/users/?login={username}&client_id=jzkbprff40iqj646a697cyrvl0zt2m6")
         
+        twitch_api_text = r.text
+        
+        twitch_api_id_one = twitch_api_text.find('"_id"')
+        twitch_api_id_two = twitch_api_text.find('"name"')
+        twitch_api_id_three = twitch_api_text[twitch_api_id_one:twitch_api_id_two].replace('"_id":"','').replace('"','').replace(',','')
+        
+        twitch_api_type_one = twitch_api_text.find('"type"')
+        twitch_api_type_two = twitch_api_text.find('"bio"')
+        twitch_api_type_three = twitch_api_text[twitch_api_type_one:twitch_api_type_two].replace('"type":"','').replace('"','').replace(',','')
+        
+        twitch_api_bio_one = twitch_api_text.find('"bio"')
+        twitch_api_bio_two = twitch_api_text.find('"created_at"')
+        twitch_api_bio_three = twitch_api_text[twitch_api_bio_one:twitch_api_bio_two].replace('"bio":"','').replace('"','').replace(',','')
+        
+        twitch_api_created_one = twitch_api_text.find('"created_at"')
+        twitch_api_created_two = twitch_api_text.find('"updated_at"')
+        twitch_api_created_three = twitch_api_text[twitch_api_created_one:twitch_api_created_two].replace('"created_at":"','').replace('"','').replace(',','')
+        
+        twitch_api_updated_at_one = twitch_api_text.find('"updated_at"')
+        twitch_api_updated_at_two = twitch_api_text.find('"logo"')
+        twitch_api_updated_at_three = twitch_api_text[twitch_api_updated_at_one:twitch_api_updated_at_two].replace('"updated_at":"','').replace('"','').replace(',','')
+        
+        twitch_api_logo_one = twitch_api_text.find('"logo"')
+        twitch_api_logo_three = twitch_api_text[twitch_api_logo_one:].replace('"logo":"','').replace('"','').replace(',','').replace('}','').replace(']','')
+        
+        twitchprint = f'''    | 
+    | Id: {twitch_api_id_three}
+    | 
+    | Created: {twitch_api_updated_at_three}
+    | 
+    | Account type: {twitch_api_type_three}
+    | 
+    | Profile picture: {twitch_api_logo_three}
+    | 
+    | Bio: {twitch_api_bio_three}
+    |   
+            '''
+            
+        print(twitchprint)        
         
         
         try:    
