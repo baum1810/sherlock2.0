@@ -869,9 +869,109 @@ def username():
                 pass    
             
             
+            
+            runboxLst = ["mailhost.work",
+                        "mailhouse.biz",
+                        "messagebox.email",
+                        "offshore.rocks",
+                        "rbox.co",
+                        "rbox.me",
+                        "rbx.email",
+                        "rbx.life",
+                        "rbx.run",
+                        "rnbx.uk",
+                        "runbox.at",
+                        "runbox.biz",
+                        "runbox.bz",
+                        "runbox.ch",
+                        "runbox.co",
+                        "runbox.co.in",
+                        "runbox.com",
+                        "runbox.dk",
+                        "runbox.email",
+                        "runbox.eu",
+                        "runbox.is",
+                        "runbox.it",
+                        "runbox.ky",
+                        "runbox.li",
+                        "runbox.me",
+                        "runbox.nl",
+                        "runbox.no",
+                        "runbox.uk",
+                        "runbox.us",
+                        "xobnur.uk"]
+            
+            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0',
+                    "Origin": "https://runbox.com",
+                    "Referer": "https://runbox.com/signup?runbox7=1"}
+            
+            
+            for rboxdomain in runboxLst:
+            
+                data = {"type": "person", "company": "", "first_name": "", "last_name": "", "user": username,
+                        "userdomain": "domainyouown.com", "runboxDomain": rboxdomain, "password": "",
+                        "password_strength": "", "email_alternative": "", "phone_number_cellular": "",
+                        "referrer": "", "phone_number_home": "", "g-recaptcha-response": "",
+                        "h-captcha-response": "", "signup": "%A0Set+up+my+Runbox+account%A0",
+                        "av": "y", "as": "y", "domain": "", "accountType": "person", "domainType": "runbox",
+                        "account_number": "", "timezone": "undefined", "runbox7": "1"}
+            
+                chkRunbox = requests.post('https://runbox.com/signup/signup', headers=headers, data=data, timeout=5)
+            
+                if chkRunbox.status_code == 200:
+                    if "The specified username is already taken" in chkRunbox.text:
+                       print(f"{Fore.BLUE}[{Fore.WHITE}+{Fore.BLUE}] {Fore.GREEN}{username}@{rboxdomain}")            
+            
+            
+            
+            
+            
+            
+            domains = [
+                'icloud.com',
+                'me.com',
+                'mac.com',
+            ]
+            
+            for domain in domains:
+                email = f'{username}@{domain}'
+                
+                headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0',
+                    'sstt': 'zYEaY3WeI76oAG%2BCNPhCiGcKUCU0SIQ1cIO2EMepSo8egjarh4MvVPqxGOO20TYqlbJI%2Fqs57WwAoJarOPukJGJvgOF7I7C%2B1jAE5vZo%2FSmYkvi2e%2Bfxj1od1xJOf3lnUXZlrnL0QWpLfaOgOwjvorSMJ1iuUphB8bDqjRzyb76jzDU4hrm6TzkvxJdlPCCY3JVTfAZFgXRoW9VlD%2Bv3VF3in1RSf6Er2sOS12%2FZJR%2Buo9ubA2KH9RLRzPlr1ABtsRgw6r4zbFbORaKTSVWGDQPdYCaMsM4ebevyKj3aIxXa%2FOpS6SHcx1KrvtOAUVhR9nsfZsaYfZvDa6gzpcNBF9domZJ1p8MmThEfJra6LEuc9ssZ3aWn9uKqvT3pZIVIbgdZARL%2B6SK1YCN7',
+                    'Content-Type': 'application/json',
+                }
+            
+                data = {'id': email}
+                check = requests.post('https://iforgot.apple.com/password/verify/appleid', headers=headers, data=json.dumps(data), allow_redirects=False, timeout=5)
+                if check.headers and check.headers.get('Location', '').startswith('/password/authenticationmethod'):
+                    print(f"{Fore.BLUE}[{Fore.WHITE}+{Fore.BLUE}] {Fore.GREEN}{username}@{domain}")           
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             print("")
             print("")
             print("Finished scann")
+            
+            
+            
+            
+            
+            
+            
+            
     else:
         r = requests.get(f'https://github.com/{username}')
         
@@ -1704,6 +1804,81 @@ def username():
         
         except:
             pass    
+
+
+        runboxLst = ["mailhost.work",
+                    "mailhouse.biz",
+                    "messagebox.email",
+                    "offshore.rocks",
+                    "rbox.co",
+                    "rbox.me",
+                    "rbx.email",
+                    "rbx.life",
+                    "rbx.run",
+                    "rnbx.uk",
+                    "runbox.at",
+                    "runbox.biz",
+                    "runbox.bz",
+                    "runbox.ch",
+                    "runbox.co",
+                    "runbox.co.in",
+                    "runbox.com",
+                    "runbox.dk",
+                    "runbox.email",
+                    "runbox.eu",
+                    "runbox.is",
+                    "runbox.it",
+                    "runbox.ky",
+                    "runbox.li",
+                    "runbox.me",
+                    "runbox.nl",
+                    "runbox.no",
+                    "runbox.uk",
+                    "runbox.us",
+                    "xobnur.uk"]
+        
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0',
+                "Origin": "https://runbox.com",
+                "Referer": "https://runbox.com/signup?runbox7=1"}
+        
+        
+        for rboxdomain in runboxLst:
+        
+            data = {"type": "person", "company": "", "first_name": "", "last_name": "", "user": username,
+                    "userdomain": "domainyouown.com", "runboxDomain": rboxdomain, "password": "",
+                    "password_strength": "", "email_alternative": "", "phone_number_cellular": "",
+                    "referrer": "", "phone_number_home": "", "g-recaptcha-response": "",
+                    "h-captcha-response": "", "signup": "%A0Set+up+my+Runbox+account%A0",
+                    "av": "y", "as": "y", "domain": "", "accountType": "person", "domainType": "runbox",
+                    "account_number": "", "timezone": "undefined", "runbox7": "1"}
+        
+            chkRunbox = requests.post('https://runbox.com/signup/signup', headers=headers, data=data, timeout=5)
+        
+            if chkRunbox.status_code == 200:
+                if "The specified username is already taken" in chkRunbox.text:
+                   print(f"{Fore.BLUE}[{Fore.WHITE}+{Fore.BLUE}] {Fore.GREEN}{username}@{rboxdomain}")   
+            
+            
+        domains = [
+            'icloud.com',
+            'me.com',
+            'mac.com',
+        ]
+        
+        for domain in domains:
+            email = f'{username}@{domain}'
+            
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0',
+                'sstt': 'zYEaY3WeI76oAG%2BCNPhCiGcKUCU0SIQ1cIO2EMepSo8egjarh4MvVPqxGOO20TYqlbJI%2Fqs57WwAoJarOPukJGJvgOF7I7C%2B1jAE5vZo%2FSmYkvi2e%2Bfxj1od1xJOf3lnUXZlrnL0QWpLfaOgOwjvorSMJ1iuUphB8bDqjRzyb76jzDU4hrm6TzkvxJdlPCCY3JVTfAZFgXRoW9VlD%2Bv3VF3in1RSf6Er2sOS12%2FZJR%2Buo9ubA2KH9RLRzPlr1ABtsRgw6r4zbFbORaKTSVWGDQPdYCaMsM4ebevyKj3aIxXa%2FOpS6SHcx1KrvtOAUVhR9nsfZsaYfZvDa6gzpcNBF9domZJ1p8MmThEfJra6LEuc9ssZ3aWn9uKqvT3pZIVIbgdZARL%2B6SK1YCN7',
+                'Content-Type': 'application/json',
+            }
+        
+            data = {'id': email}
+            check = requests.post('https://iforgot.apple.com/password/verify/appleid', headers=headers, data=json.dumps(data), allow_redirects=False, timeout=5)
+            if check.headers and check.headers.get('Location', '').startswith('/password/authenticationmethod'):
+                print(f"{Fore.BLUE}[{Fore.WHITE}+{Fore.BLUE}] {Fore.GREEN}{username}@{domain}")           
+            
             
             
             print("")
@@ -1760,6 +1935,9 @@ def websides():
     wasteland.zz.de
     protonmail.com
     mail.ru
+    icloud.com
+    me.com
+    mac.com
     bk.ru
     inbox.ru
     list.ru
@@ -1787,6 +1965,38 @@ def websides():
     firemail.de
     firemail.eu
     startmail.com
+    mailhost.work
+    mailhouse.biz
+    messagebox.email
+    offshore.rocks
+    rbox.co
+    rbox.me
+    rbx.email
+    rbx.life
+    rbx.run
+    rnbx.uk
+    runbox.at
+    runbox.biz
+    runbox.bz
+    runbox.ch
+    runbox.co
+    runbox.co.in
+    runbox.com
+    runbox.dk
+    runbox.email
+    runbox.eu
+    runbox.is
+    runbox.it
+    runbox.ky
+    runbox.li
+    runbox.me
+    runbox.nl
+    runbox.no
+    runbox.uk
+    runbox.us
+    xobnur.uk
+    
+    
     
     
     """)
